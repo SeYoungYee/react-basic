@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import Btns from './Component/Btn';
 import './App.css'
 
@@ -21,13 +21,15 @@ function App() {
   }
 
   return (
-    <div>
+    <Fragment>
+    <div className='btns'>
       <Btns onClick={Up} sign="더하기" />
       <Btns onClick={Down} sign="빼기" />
       <Btns onClick={Reset} sign="초기화" />
       <br />
       {count}
     </div>
+    </Fragment>
   )
 }
 
