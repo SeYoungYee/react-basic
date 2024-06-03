@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Todo from "./Component/Todo";
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -50,16 +51,12 @@ function App() {
       </form>
       <ul>
         {todos.map((todo) => (
-          <li
+          <Todo
             key={todo.id}
-            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
-          >
-            {todo.text}
-            <button onClick={() => handleToggleTodo(todo.id)}>
-              {todo.completed ? "취소" : "완료"}
-            </button>
-            <button onClick={() => handleDeleteTodo(todo.id)}>삭제</button>
-          </li>
+            todo={todo}
+            handleToggleTodo={handleToggleTodo}
+            handleDeleteTodo={handleDeleteTodo}
+          />
         ))}
       </ul>
     </div>
